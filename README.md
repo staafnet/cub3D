@@ -35,7 +35,9 @@ To compile and run the project, you need:
 
 To compile the project, run the following command in the terminal:
 
-```make```
+```
+make
+```
 
 The project will be compiled, and the executable file `cub3D` will be created.
 
