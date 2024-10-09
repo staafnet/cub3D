@@ -2,7 +2,7 @@
 
 ## **Project Description**
 
-cub3D is a project that implements a simple 3D engine, inspired by the game (*Wolfenstein 3D*). The project is part of the Ecole 42 educational program. The goal is to understand the basics of 3D rendering, such as raycasting, and user interaction.
+cub3D is a project that implements a simple 3D engine, inspired by the game *Wolfenstein 3D*. The project is part of the Ecole 42 educational program. The goal is to understand the basics of 3D rendering, such as raycasting, and user interaction.
 
 ## **Project Structure**
 ```
