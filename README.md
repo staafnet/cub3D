@@ -5,28 +5,22 @@
 cub3D is a project that implements a simple 3D engine, inspired by the game (*Wolfenstein 3D*). The project is part of the Ecole 42 educational program. The goal is to understand the basics of 3D rendering, such as raycasting, and user interaction.
 
 ## **Project Structure**
-```cub3D/
+```
+cub3D/
 ├── Makefile
 ├── includes/
 │   └── cub3D.h
 ├── minilibx-linux/
-│   ├── libmlx.a
-│   ├── mlx.h
-│   └── [inne pliki i katalogi źródłowe biblioteki minilibx]
 ├── src/
+│	├── player/
+│   │	└── init.c
 │   ├── main.c
 │   ├── rendering.c
 │   ├── input.c
 │   ├── game_logic.c
-│   ├── utils.c
-│   └── [inne pliki źródłowe]
+│   └── utils.c
 └── obj/
-    ├── main.o
-    ├── rendering.o
-    ├── input.o
-    ├── game_logic.o
-    ├── utils.o
-    └── [inne pliki obiektowe]```
+```
 
 - **Makefile**: Script for automating project compilation.
 - **includes/**: Folder containing header file `cub3D.h`.
