@@ -7,19 +7,14 @@ cub3D is a project that implements a simple 3D engine, inspired by the game (*Wo
 ## **Project Structure**
 ```
 cub3D/
-├── Makefile
-├── includes/
+├── includes
 │   └── cub3D.h
-├── minilibx-linux/
-├── src/
-│   ├── player/
-│   │   └── init.c
-│   ├── main.c
-│   ├── rendering.c
-│   ├── input.c
-│   ├── game_logic.c
-│   └── utils.c
-└── obj/
+├── Makefile
+├── README.md
+└── src
+    ├── main.c
+    └── player
+        └── init.c
 ```
 
 - **Makefile**: Script for automating project compilation.
