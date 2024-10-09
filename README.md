@@ -45,21 +45,29 @@ The project will be compiled, and the executable file `cub3D` will be created.
 
 To run the program, use the following command:
 
-```./cub3D maps/<name_map>.cub```
+```
+./cub3D maps/<name_map>.cub
+```
 
 ## **Cleaning Files**
 
 To remove object files, you can use:
 
-```make clean```
+```
+make clean
+```
 
 To also remove the executable file, use:
 
-```make fclean```
+```
+make fclean
+```
 
 To recompile the project from scratch, use:
 
-```make re```
+```
+make re
+```
 
 ## **Contact**
 
