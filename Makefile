@@ -1,29 +1,31 @@
 NAME = cub3D
 CC = cc
-SRCS = $(shell find src -type f -name "*.c")
-OBJS = $(patsubst src/%, obj/%, $(SRCS:.c=.o))
-CFLAGS = -Wall -Wextra -Werror -I includes -I minilibx-linux
-MLXFLAGS = -lXext -lX11 -lm
-MLX_DIR = minilibx-linux
-MLX = $(MLX_DIR)/libmlx.a
+SRC_DIR = src
+OBJ_DIR = obj
+CFLAGS = -Wall -Wextra -Werror -I includes
 
-all: $(MLX) $(NAME)
+SRCS_LIST = main.c \
+			map_file/init.c map_file/check.c map_file/utils.c \
+			map/clear.c map/check.c map/utils.c \
+			game/check.c game/clear.c \
+			images/clear.c \
+			player/check.c player/init.c \
+			utils/ft_strlen.c utils/ft_strdup.c utils/ft_strncmp.c
+SRCS = $(addprefix $(SRC_DIR)/, $(SRCS_LIST))
 
-$(MLX):
-	@if [ ! -d "$(MLX_DIR)" ]; then \
-		git clone https://github.com/42Paris/minilibx-linux.git; \
-	fi
-	cd $(MLX_DIR) && $(MAKE)
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-$(NAME): $(OBJS) $(MLX)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX) $(MLXFLAGS)
+all: $(NAME)
 
-obj/%.o: src/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
-	rm -rf obj
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
