@@ -5,12 +5,13 @@ OBJ_DIR = obj
 CFLAGS = -Wall -Wextra -Werror -I includes
 
 SRCS_LIST = main.c \
-			map_file/init.c map_file/check.c map_file/utils.c \
+			file_map/check.c file_map/utils.c \
+			game/init.c \
 			map/clear.c map/check.c map/utils.c \
 			game/check.c game/clear.c \
 			images/clear.c \
 			player/check.c player/init.c \
-			utils/ft_strlen.c utils/ft_strdup.c utils/ft_strncmp.c
+			utils/ft_error.c utils/ft_strlen.c utils/ft_strdup.c utils/ft_strcmp.c utils/ft_strncmp.c
 SRCS = $(addprefix $(SRC_DIR)/, $(SRCS_LIST))
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

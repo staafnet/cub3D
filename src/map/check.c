@@ -6,25 +6,25 @@
 /*   By: rgrochow <staafnet@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 17:33:13 by rgrochow          #+#    #+#             */
-/*   Updated: 2024/10/27 11:50:42 by rgrochow         ###   ########.fr       */
+/*   Updated: 2024/11/01 16:21:55 by rgrochow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-
+/*
 static int	**init_visited(t_game *game)
 {
 	int	**visited;
 	int	i;
 	int	j;
 
-	visited = malloc((game->map.height + 1) * sizeof(int *));
+	visited = malloc((game->map.height + 3) * sizeof(int *));
 	if (!visited)
 		close_game(game);
 	i = 0;
 	while (i < game->map.height)
 	{
-		visited[i] = malloc((game->map.width + 1) * sizeof(int));
+		visited[i] = malloc((game->map.width + 3) * sizeof(int));
 		if (!visited[i])
 		{
 			while (--i >= 0)
@@ -90,7 +90,13 @@ void	check_map(t_game *game)
 	game->player.player_dir = 'X';
 	while (i < game->map.height)
 	{
-
+		printf("%s\n", game->map.grid[i++]);
+	}
+	i = 0;
+	game->player.player_x = 0;
+	game->player.player_y = 0;
+	while (i < game->map.height)
+	{
 		if (!check_player(game, game->map.grid[i], i))
 		{
 			close_game(game);
@@ -102,3 +108,4 @@ void	check_map(t_game *game)
 		close_game(game);
 	}
 }
+*/

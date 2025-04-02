@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgrochow <staafnet@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 16:38:05 by rgrochow          #+#    #+#             */
-/*   Updated: 2024/11/03 12:07:43 by rgrochow         ###   ########.fr       */
+/*   Created: 2025/01/05 21:29:36 by rgrochow          #+#    #+#             */
+/*   Updated: 2025/01/05 23:43:43 by rgrochow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	clear_map(t_game *game)
+void	ft_error(char *status, void *data)
 {
-	int	i;
-
-	i = 0;
-	while (i < game->map.height)
-	{
-		free(game->map.grid[i]);
-		i++;
-	}
-	free(game->map.grid);
-}
-
-void	close_game(t_game *game)
-{
-	//clear_images(game);
-	clear_map(game);
-	printf("Error player directionnnn\n");
-	exit(0);
+	if (ft_strcmp(status, "USAGE") == 0)
+		(printf("Usage: ./cub3D maps/<map_file>\n"), exit(0));
+	else if (ft_strcmp(status, "MAP_FILE_NOT_FOUND") == 0)
+        (printf("File not found: %s\n", (char *)data), exit(0));
+    else if (ft_strcmp(status, "ERROR_MAP_FILE") == 0)
+    {
+        close_game(data);
+    }
+    else
+    {
+        printf("Unknown error status: %s\n", status);
+    }
 }

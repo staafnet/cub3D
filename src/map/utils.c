@@ -6,7 +6,7 @@
 /*   By: rgrochow <staafnet@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:40:52 by rgrochow          #+#    #+#             */
-/*   Updated: 2024/10/20 15:07:27 by rgrochow         ###   ########.fr       */
+/*   Updated: 2024/11/01 16:17:16 by rgrochow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	**q_init(t_game *game)
 	int	**q;
 	int	i;
 
-	q = malloc(game->map.width * game->map.height * sizeof(int *));
+	q = malloc(game->map.height * game->map.width * sizeof(int *));
 	if (!q)
 		return (NULL);
 	i = 0;
@@ -94,9 +94,11 @@ int	bfs(t_game *game, int **directions, int **visited)
 	game->path.rear = 0;
 	game->path.ex = 1;
 	q = q_init(game);
-	q[game->path.rear][0] = game->player.x;
-	q[game->path.rear][1] = game->player.y;
-	visited[game->player.y][game->player.x] = 1;
+	
+	q[game->path.rear][0] = (int)game->player.player_y;
+	q[game->path.rear][1] = (int)game->player.player_x;
+	printf("%c\n", visited[(int)game->player.player_x][(int)game->player.player_y]);
+	visited[(int)game->player.player_x][(int)game->player.player_y] = 1;
 	search(game, visited, q, directions);
 	q_free(game, q);
 	return (game->path.ex);
